@@ -2,6 +2,7 @@
 //(number)**(even)
 //(number)**(positive)
 //(number)**(negative)
+//time complexity:O(n)=log(n)
 
 function findPowerOfAnElement(a, n) {
   if (n == 0) {
@@ -34,7 +35,7 @@ function findPowerOfAnElement(a, n) {
 }
 
 //Driver code
-const a = -3;
-const n = 3;
+const a = 3;
+const n = -6;
 const result = findPowerOfAnElement(a, n);
 console.log(result);
