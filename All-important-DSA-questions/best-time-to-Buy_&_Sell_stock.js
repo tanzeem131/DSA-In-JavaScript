@@ -27,17 +27,30 @@ Constraints:
 
 //time complexity-O(n)
 
+// function findMaxProfit(price) {
+//   minPrice = Infinity;
+//   maxProfit = 0;
+//   for (i = 0; i < price.length; i++) {
+//     if (price[i] < minPrice) minPrice = price[i];
+//     else if (price[i] - minPrice > maxProfit) maxProfit = price[i] - minPrice;
+//   }
+//   return maxProfit;
+// }
 function findMaxProfit(price) {
-  minPrice = Infinity;
-  maxProfit = 0;
-  for (i = 0; i < price.length; i++) {
-    if (price[i] < minPrice) minPrice = price[i];
-    else if (price[i] - minPrice > maxProfit) maxProfit = price[i] - minPrice;
+  let maxProfit = 0;
+  let coord = {};
+  for (let i = 0; i <= price.length - 1; i++) {
+    for (let j = i + 1; j < price.length - 1; j++) {
+      if (price[j] - price[i] > maxProfit) {
+        maxProfit = price[j] - price[i];
+        coord = { i, j };
+      }
+    }
   }
-  return maxProfit;
+  return { maxProfit, coord };
 }
 
-//Driver code
+//Driver code=
 const price = [7, 1, 5, 3, 6, 4];
 const maxProfit_value = findMaxProfit(price);
 console.log(maxProfit_value);
